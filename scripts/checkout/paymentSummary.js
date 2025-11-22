@@ -68,6 +68,9 @@ export function renderPaymentSummary() {
             });
             const order = await response.json()
             addOrder(order);
+            cart.cartItems.forEach((cartItem) => {
+                cart.removeFromCart(cartItem.productId)
+            })
 
         } catch (error) {
             console.log('Unexpected error. Please try again later.')
